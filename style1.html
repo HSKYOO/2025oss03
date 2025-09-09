@@ -1,1 +1,71 @@
 <!-- Sytle sheet 1 -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylesheet1</title>
+ </head>
+
+ <!-- 각 레이아웃의 스타일 설정 -->
+ <style>
+
+    body {
+        margin: 0;
+    }
+
+    div {
+        border: 1px solid #04AA6D;
+        border-radius: 4px;
+        font-size: 17px;
+        font-weight: bold;
+        color:white;
+        padding: 8px;
+        margin: 10px;
+        background-color: #04AA6D;
+        text-align: left;
+    }
+
+    /* 레이아웃 잡는 컨테이너 */
+    .container {
+        display: flex;
+        align-items: center;
+        border: none;
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container > menu {
+        flex-basis: 200px;
+    }
+
+    .container > main {
+        color:black;
+        font-size: 30px;
+        text-align: start;
+        flex: 1;
+    }
+
+
+ </style>
+
+ <body> <header>
+        <div>Welcome to 유현석's Homepage (22200480)</div>
+    </header>
+
+    <div class="container">
+        <menu>
+            <div>Sytlesheet 1</div>
+            <div>Sytlesheet 2</div>
+            <div>Sytlesheet 3</div>
+            <div>Sytlesheet 4</div>
+        </menu>
+
+        <main>
+            Same Page Different Stylesheets
+        </main>
+    </div>
+
+ </body>
+ </html>
