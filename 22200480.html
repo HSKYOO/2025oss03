@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .border_example{
+            height: 100px;
+            width: 100px;
+            border : 1px solid #3d3d3d; padding:30px;
+            border-radius: 25%;
+            background-color: rgb(147, 213, 235);
+            text-align: center;
+        }
+        img{
+            width:100%;
+            height:auto
+        }
+    </style>
+</head>
+    <body>
+        <div class="border_example">보더 관련!</div>
+        <div style="height:100px;border:1px solid red">높이 확인!</div>
+        <img src="https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg">
+
+        <table style="width: 100%;background-color: beige;">
+            <tr>
+                <td width="33.3%">one</td>
+                <td width="33.3%">two</td>
+                <td width="33.3%">three</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">======== 두개 합치기 가로로!========</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td rowspan="2">1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+        </table>
+    </body>
+</html>
