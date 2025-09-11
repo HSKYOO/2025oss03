@@ -1,22 +1,147 @@
-<!-- Stylesheet 3 -->
- <!DOCTYPE html>
- <html>
- <head>
-    <title>페이지 제목</title>
- </head>
- <body>
-    <div id="header">
-        <h1>우리 집 홈페이지</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylesheet2</title>
+</head>
+
+<!-- 스타일  -->
+<style>
+    
+    body {
+        font: Arial;
+        background-color: #d14836;
+        line-height: 20px;
+        word-spacing: 4px;
+    }
+
+    .top {
+        font-size: 30px;
+        color: white;
+        padding: 0px 0 0 10px;
+        line-height: 26px;
+    }
+    
+    .main{
+        display:flex;
+        flex-direction: row;
+        background-color: white;
+        padding: 8px;
+    }
+
+    .main_content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main_content_link {
+        display: flex;
+        flex-direction: row;
+        font-size: 14px;
+        word-spacing: 3px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    span {
+        margin-right: 4px;
+    }
+
+    .menubar{
+        margin: 12px;
+        list-style: none;
+    }
+
+    li {
+        padding: 4px;
+        margin: 0 0 10px 10px;
+        width: 155px;
+        text-align: center;
+        background-color: #d14836;
+        color: white;
+        border-radius: 40px;
+        border: 1px solid #d14836;
+    }
+
+    li:hover{
+        cursor: pointer;
+        color:#d14836;
+        border: 1px solid #d14836;
+        background-color: white;
+    }
+
+    .sidebar {
+        background-color: #F6DAD7;
+        padding: 12px 20px 18px 8px;
+    }
+
+    .bottom {
+        margin: 4px;
+        font-size: 10px;
+        color: white;
+        text-align: center;
+        word-spacing: 1.5px;
+    }
+</style>
+
+<!-- 내용 -->
+<body>
+    <!-- top -->
+    <div class="top">
+        <h1>Welcome to 유현석's Homepage</h1>
+        <p style="padding: 10px 0;">Use the menu to select different Stylesheets</p>
     </div>
 
-    <div id="main-container">
-        <div id="menu"> ... </div>
-        <div id="content"> ... </div>
+    <!-- main content -->
+    <div class="main">
+
+        <div class="main_content">
+            <!-- content -->
+            <h2 style="color: #d14836; font-weight: 800;">Same Page Different Stylesheets</h2>
+            <a style="font-size: 13px; line-height: 15px;">This is a demonstration of how different stylesheets can change the layout of your HTML page. You can change the layout of this page by selecting different stylesheets in the menu, or by selecting one of the following links:</a>
+
+            <div class="main_content_link">
+                <a href="." style="color: #d14836;">Stylesheet1</a>
+                <span>,</span>
+                <a href="." style="color: #d14836;">Stylesheet2</a>
+                <span>,</span>
+                <a href="." style="color: #d14836;">Stylesheet3</a>
+                <span>,</span>
+                <a href="." style="color: #d14836;">Stylesheet4</a>
+            
+            </div>
+            
+            <h3 style="color: #d14836; font-weight: 800;">No Styles</h3>
+            <a style="font-size: 13px; line-height: 15px;">This page uses DIV elements to group different sections of the HTML page. Click here to see how the page looks like with no stylesheet:</a>
+            <div>
+                <a href="." style="color: #d14836; font-size: 13px;">No Stylesheet</a><span>.</span>
+            </div>
+            
+            
+        </div>
+        
+        <!-- menubar --> 
+        <div class="menubar">
+            <li>Stylesheet 1</li>
+            <li style="background-color: white; color: #d14836; font-weight: 850;">Stylesheet 2</li>
+            <li>Stylesheet 3</li>
+            <li>Stylesheet 4</li>
+            <li>No Stylesheet</li>
+        </div>
+    </div>
+       
+    <!-- side bar -->
+    <div class="sidebar">
+        <h3 style="color: #d14836;">Side-Bar</h3>
+        <a style="color: #d14836; font-size: 14px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</a>
+    </div>
+    <!-- bottom -->
+    <div class="bottom">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
     </div>
 
-    <div id="footer">
-        <p>만든 사람: 유현석</p>
-    </div>
- </body>
-
- </html>
+</body>
+</html>
