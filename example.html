@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example.html</title>
+</head>
+
+<style>
+
+    body {
+        display: flex;
+        flex-direction: column;
+        font: "Segoe UI", Roboto;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .header > img {
+        margin-top: 80px;
+    }
+
+    .header > h2 {
+        font-size: 50px;
+        font-weight: 700;
+        margin: 10px;
+    }
+
+    .header > a {
+        line-height: 30px;
+        margin: 0 300px 0 300px;
+        font-size: 20px;
+        font-weight: 310;
+    }
+
+    .divider {
+        background-color: #0000001a;
+        width: 100%;
+        height: 50px;
+        box-shadow: inset 0 8px 24px #0000001a,
+                    inset 0 2px 8px #00000026;
+    }
+
+    .divider_1 {
+        background-color: white;
+        width: 100%;
+        height: 50px;
+        border: 1px solid rgba(0, 0, 0, 0.175);
+    }
+
+    .content_1 {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        text-align: center;
+        align-items: center;
+        margin: 48px 10;
+    }
+
+    .content_1 > h2 {
+        font-size: 55px;
+        font-weight: 700;
+        margin: 10px;
+        word-spacing: 8px;
+        margin-top: 80px;
+    }
+    
+    .content_1 > a {
+        line-height: 30px;
+        margin: 0 310px 0 310px;
+        font-size: 20px;
+        font-weight: 310;
+    }
+
+    .content_1 > .button_area > .button_1, .button_2 {
+        margin: 20px;
+    }
+
+    .img_crop {
+        position: relative;
+        /* height: 228px; */
+        width: 700px;
+        height: 228px;
+        overflow: hidden;
+        border-radius: 8px 8px 0 0;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    }
+
+    .content_2 {
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .content_2_left {
+        padding-left: 65px;
+    }
+    .content_2_left > h2{
+        font-weight: 700;
+        font-size: 45px;
+        padding-top: 50px;
+        line-height: 1;
+        word-spacing: 7px;
+        margin-bottom: 14px;
+    }
+
+    .content_2_left > a {
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    .content_2_right {
+        padding: 50px 80px 0 40px;
+        display: flex;
+        align-items: center;
+    }
+
+    .content_2_right > img {
+        width: 550px;
+        height: 400px;
+        
+    }
+
+    .content_3 {
+        background-color: white;
+    }
+
+    .content_4 {
+        background-color: white;
+    }
+
+    .content_dark {
+        background-color: #212529;
+    }
+
+    .button_area {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-radius: 8px;
+        margin-top: 16px;
+        margin-bottom: 80px;
+    }
+
+    .button_1, .button_2{
+        font-size: 20px;
+        padding: 10px 24px;
+        margin: 4px;
+        border-radius: 8px;
+    }
+    
+    .button_1 {
+        background-color: #0d6efd;
+        border: 1px solid #0d6efd;
+        color:white;
+        align-items: center;
+    }
+
+    .button_1:hover {
+        cursor: pointer;
+        background-color: #0b5ed7;
+    }
+
+    .button_2 {
+        background-color: white;
+        border: 1px solid #6c757d;
+        color: #6c757d;
+    }
+    
+    .button_2:hover {
+        cursor: pointer;
+        background-color: #6c757d;
+        color: white;
+    }
+
+</style>
+
+    <!-- header --> 
+    <div class="header">
+        <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png" alt="Bootstrap Logo" width="80" height="70">
+        <h2>Centered hero</h2>
+        <a>Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</a>
+        <!-- 버튼 두개 -->
+         <div class="button_area">
+            <div class="button_1">Primary button</div>
+            <div class="button_2">Secondary</div>
+         </div>
+
+    </div>
+    
+    <!-- divider -->
+    <div class="divider" bor></div>
+
+    <!-- content_1 -->
+    <div class="content_1">
+        <h2>Centered screenshot</h2>
+        <a>Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</a>
+        <div class="button_area">
+            <div class="button_1">Primary button</div>
+            <div class="button_2">Secondary</div>
+        </div>
+        <div class="img_crop">
+            <img src="https://getbootstrap.com/docs/5.3/examples/heroes/bootstrap-docs.png" class="img-fluid border rounded-3 shadow-lg mb-4" width="700" height="500" loading="lazy">    </div>
+        </div>
+    
+    <!-- divider_1 -->
+    <div class="divider_1"></div>
+    
+    <!-- divider -->
+    <div class="divider"></div>
+
+    <!-- content_2 -->
+    <div class="content_2">
+
+        <div class="content_2_left">
+            <h2>Responsive left-aligned hero with image</h2>
+            <a>Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</a>
+            <div class="button_area">
+                <div class="button_1">Primary</div>
+                <div class="button_2">Default</div>
+            </div>
+        </div>
+        
+        <div class="content_2_right">
+            <img src="https://getbootstrap.com/docs/5.3/examples/heroes/bootstrap-themes.png" class="img-fluid border rounded-3 shadow-lg mb-4" width="700" height="500">
+        </div>
+
+    </div>
+
+    <!-- content_3 -->
+    <div class="content_3">
+
+    </div>
+
+    <!-- divider -->
+    <div class="divider">
+
+    </div>
+
+    <!-- content_4 -->
+    <div class="content_4">
+
+    </div>
+
+    <!--divider -->
+    <div class="content_dark">
+
+    </div>
+
+<body>
+    
+</body>
+</html>
