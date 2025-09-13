@@ -121,16 +121,93 @@
         padding: 50px 80px 0 40px;
         display: flex;
         align-items: center;
+        margin-bottom: 80px;
     }
 
     .content_2_right > img {
         width: 550px;
         height: 400px;
-        
     }
 
     .content_3 {
         background-color: white;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .content_3_left {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+        margin-left: 120px;
+    }
+
+    .content_3_left > h2 {
+        font-weight: 700;
+        font-size: 55px;
+        word-spacing: 7px;
+        margin-top: 120px;
+        line-height: 1.15;
+        margin-bottom: 10px;
+    }
+
+    .content_3_left > a {
+        font-size: 22px;
+        font-weight: 350;
+        line-height: 1.6;
+        margin-right: 70px;
+        word-spacing: 4px;
+    }
+    
+
+    .content_3_right{
+        
+        background-color: rgb(248,249,250);
+        text-align: center;
+        margin: 80px 120px 80px 80px;
+    }
+
+    .content_3_right > .login {
+        background-color: rgb(248,249,250);
+        border: 1px solid #d0d4d8;
+        border-radius: 8px;
+
+        /* layout 형식 */
+        width: 400px;
+        height: 380px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+    }
+
+    .info {
+        display: flex;
+        vertical-align: middle;
+        background-color: white;
+        color: #6c757d;
+        border: 1px solid #d0d4d8;
+        border-radius: 8px;
+        /* onclick시 12px */
+        font-size: 16px;
+        align-items: center;
+
+        font-weight: 400;
+        width: 300px;
+        height: 50px;
+        margin-top: 20px;
+        padding-left: 10px;
+    }
+
+    /* Remember me 부분 */
+    .remember_me {
+        display: flex;
+        flex-direction: row;
+        padding-top: 20px;
+        margin-right: 175px;
+        gap: 10px;
+        align-items: center;
     }
 
     .content_4 {
@@ -179,6 +256,28 @@
         cursor: pointer;
         background-color: #6c757d;
         color: white;
+    }
+
+    label {
+        margin-top:13px;
+        margin-right: 180px;
+    }
+
+    .line {
+        border: 1px  #d0d4d8;
+        background-color: #d0d4d8;
+        width: 315px;
+        height: 0.5px;
+        margin: 30px;
+    }
+
+    .agreements_info {
+        font-weight: 350;
+        font-size: 14px;
+        word-spacing: 2px;
+        margin-left: 40px;
+        margin-right: 40px;
+        text-align: left;
     }
 
 </style>
@@ -235,9 +334,33 @@
 
     </div>
 
+    <!-- divider -->
+    <div class="divider"></div>
+
     <!-- content_3 -->
     <div class="content_3">
+        <div class="content_3_left">
+            <h2>Vertically centered hero sign-up form</h2>
+            <a>Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</a>
+        </div>
 
+        <!-- 로그인 창 -->
+        <div class="content_3_right">
+            <div class="login">
+                <div class="info">Email address</div>
+                <div class="info">Password</div>
+                <label>
+                    <input type="checkbox" name="select" value="accepted"/> Remember me
+                </label>
+                <!-- 로그인 버튼 -->
+                <a class="button_1" style="width: 300px; margin-top: 13px; padding: 6px; padding-bottom: 8px; text-decoration: none;" href="example.html" >Sign up</a>
+                <!-- 밑에 라인 -->
+                <div class="line"></div>
+                <!-- 약관 동의 내용 -->
+                <div class="agreements_info">By clicking Sign up, you agree to the terms of use.</div>
+            </div>
+            
+        </div>
     </div>
 
     <!-- divider -->
