@@ -54,6 +54,13 @@
         border: 1px solid rgba(0, 0, 0, 0.175);
     }
 
+    .divider_2 {
+        background-color: #0000001a;
+        width: 100%;
+        height: 50px;
+        border-radius: 0 0 4px 4px;
+    }
+
     .content_1 {
         background-color: white;
         display: flex;
@@ -212,12 +219,81 @@
 
     .content_4 {
         background-color: white;
+        display: flex;
+        align-items: center;
+    }
+
+    /* 메인 프레임 */
+    .content_4_frame {
+        margin: 50px;
+        width: 1150px;
+        height: 500px;
+        display: flex;
+        flex-direction: row;
+        border-radius: 8px;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    }
+    /* 본문 */
+    .content_4_frame_left {
+        display: flex;
+        flex-direction: column;
+        margin: 30px 70px 10px 60px;
+    }
+
+    .content_4_frame_left > h2 {
+        font-size: 50px;
+        line-height: 1.2;
+        word-spacing: 4px;
+        margin-bottom: 6px;
+    }
+
+    .content_4_frame_left > a {
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 1.7;
+    }
+
+    /* 이미지 */
+    .content_4_frame_right {
+        margin-top: 30px;
+    }
+
+    .content_4_frame_right > img {
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    }
+
+    .img_crop_2 {
+        position: relative;
+        width: 400px;
+        height: 460px;
+        overflow: hidden;
+        border-radius: 8px 0 0 0;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+        margin-left: 0;
     }
 
     .content_dark {
-        background-color: #212529;
+        background-color: rgb(33, 37, 42);
+        display: flex;
+        flex-direction: column;
+        padding: 40px 330px 40px 350px;
+        align-items: center;
+        text-align: center;
     }
 
+    .content_dark > h2 {
+        color: white;
+        font-size: 50px;
+        margin-bottom: 3px;
+    }
+
+    .content_dark > a {
+        color: #6c757d;
+        font-size: 20px;
+        font-weight: 350;
+    }
+
+    /* 버튼 부분 */
     .button_area {
         display: flex;
         flex-direction: row;
@@ -256,6 +332,37 @@
         cursor: pointer;
         background-color: #6c757d;
         color: white;
+    }
+
+    .button_3 {
+        background-color: rgb(33, 37, 42);
+        border-radius: 8px;
+        border: 1px solid #0dcaf0;
+        color: #0dcaf0;
+        font-weight: 700;
+        font-size: 20px;
+        padding: 10px 24px;
+        margin: 12px;
+    }
+
+    .button_3:hover {
+        background-color: #0dcaf0;
+        color: rgb(33, 37, 42);
+    }
+
+    .button_4 {
+        background-color: rgb(33, 37, 42);
+        border-radius: 8px;
+        border: 1px solid white;
+        color: white;
+        padding: 10px 24px;
+        margin: 12px;
+        font-size: 20px;
+    }
+
+    .button_4:hover {
+        background-color: white;
+        color: rgb(33, 37, 42);
     }
 
     label {
@@ -364,20 +471,42 @@
     </div>
 
     <!-- divider -->
-    <div class="divider">
-
-    </div>
+    <div class="divider"></div>
 
     <!-- content_4 -->
     <div class="content_4">
-
+        <div class="content_4_frame">
+            <div class="content_4_frame_left">
+                <h2>Border hero with cropped image and shadows</h2>
+                <a>Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</a>
+                <div class="button_area">
+                    <div class="button_1">Primary</div>
+                    <div class="button_2">Default</div>
+                </div>
+            </div>
+            <div class="content_4_frame_right">
+                <div class="img_crop_2">
+                    <img src="https://getbootstrap.com/docs/5.3/examples/heroes/bootstrap-docs.png" class="img-fluid border rounded-3 mb-4" width="800" height="500">
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!--divider -->
+    <!-- divider -->
+    <div class="divider"></div>
+
+    <!-- content dark -->
     <div class="content_dark">
-
+        <h2>Dark color hero</h2>
+        <a>Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</a>
+        <div class="button_area">
+            <div class="button_3">Custom button</div>
+            <div class="button_4">Secondary</div>
+        </div>
     </div>
 
+    <!-- divider 2 -->
+    <div class="divider_2"></div>
 <body>
     
 </body>
