@@ -60,6 +60,49 @@
     .Payment {
         margin-top: 10px;
     }
+
+    .card_input {
+        display: flex;
+        gap: 70px;
+    }
+
+    .card_input_box {
+        display: flex;
+        gap: 40px;
+    }
+
+    .back_card {
+        display: flex;
+        gap: 40px;
+    }
+
+    .back_card_input {
+        display: flex;
+        gap: 30px;
+    }
+
+    .button {
+        display: flex;
+        width: 300px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 300;
+        background-color: #0D6EFD;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .button:hover {
+        background-color: #0a53be;
+    }
+
+    .sidebar_header {
+        display: flex;
+        flex-direction: row;
+        gap: 120px;
+    }
     /* focus -> 1. 파란색(처음 입력시) 2. 빨간색(required 입력 안됬을 시) 3.초록색(입력값이 있을때) */
 </style>
 
@@ -150,13 +193,39 @@
             </div>
             
             <div class="card_input">
-                <input type="text" id="text"
+                <label for="cardName">Name on card</label>
+                <label for="cardNumber">Credit card number</label><br>
             </div>
 
+            <div class="card_input_box">
+                <input type="text" id="cardName">
+                <input type="text" id="cardNumber">
+            </div>
+            <p style="font-size: 14px; font-weight: 400; color: rgba(58, 55, 55, 0.639);">Full name as displayed on card</p>
+            
+            <div class="back_card">
+                <label for="expiration">Expiration</label>
+                <label for="CVV">CVV</label>
+            </div>
+
+            <div class="back_card_input">
+                <input type="text" id="expiration" name="expiration">
+                <input type="text" id="CVV" name="CVV">
+            </div>
+
+            <!-- 경계선 -->
+            <div class="line_divide"></div>
+
+            <!-- checkout 버튼 -->
+            <div class="button">Continue to checkout</div>
         </div>
         <!-- 사이드 바 -->
         <div class="sidebar">
-
+            <div class="sidebar_header">
+                <div style="font-size: 25px; color: #0D6EFD; text-align: left;">Your cart</div>
+                <div style="font-size: 25px; color: white; text-align: center; background-color: #0D6EFD; border-radius: 30px; width: 40px;">3</div>
+            </div>
+            
         </div>
     </div>
     
