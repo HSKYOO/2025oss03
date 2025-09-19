@@ -11,7 +11,7 @@
     body {
         display: flex;
         flex-direction: column;
-        background-color: aliceblue;
+        background-color: white;
     }
 
     .header {
@@ -36,6 +36,31 @@
         flex-direction: row;
         gap: 400px;
     }
+
+    .location {
+        display: flex;
+        flex-direction: row;
+        gap: 160px;
+    }
+
+    .location_select {
+        display: flex;
+        gap: 120px;
+    }
+
+    .line_divide {
+        /* border: 1px solid black; */
+        background-color: rgba(111, 106, 106, 0.397);
+        width: 800px;
+        height: 0.5px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .Payment {
+        margin-top: 10px;
+    }
+    /* focus -> 1. 파란색(처음 입력시) 2. 빨간색(required 입력 안됬을 시) 3.초록색(입력값이 있을때) */
 </style>
 
 <!-- 내용 -->
@@ -84,6 +109,49 @@
                 <input type="text" size="40" name="address2" id="address2" placeholder="Apartment or suite" >
             </div>
 
+            <div class="location">
+                <label for="country">Country</label>
+                <label for="state">State</label>
+                <label for="zip">Zip</label></br>
+            </div>
+            <div class="location_select">
+                <select name="country">
+                    <option value="1">Choose...</option>
+                    <option value="2">United States</option>
+                </select>
+
+                <select name="state">
+                    <option value="1">Choose...</option>
+                    <option value="2">California</option>
+                </select>
+            
+                <input type="text" size="10" name="zip" id="zip">
+            </div>
+            
+            <!-- 경계선 -->
+            <div class="line_divide"></div>
+
+            <!-- 체크 박스 2개 -->
+            <label for="options">
+                <input type="checkbox" id="checkbox_1" name="checkbox_1">Shipping address is the same as my billing address<br>
+                <input type="checkbox" id="checkbox_2" name="checkbox_2">Save this information for next time        
+            </label>
+
+            <!-- 경계선 -->
+            <div class="line_divide"></div>
+
+            <!-- Payment -->
+            <label for="card" style="font-size: 20px; font-weight: 400;">Payment</label>
+            
+            <div class="Payment">
+                <input type="radio" id="card" name="card" value="C_card">Credit card<br>
+                <input type="radio" id="card" name="card" value="D_card">Debit card<br>
+                <input type="radio" id="card" name="card" value="Paypal">Paypal
+            </div>
+            
+            <div class="card_input">
+                <input type="text" id="text"
+            </div>
 
         </div>
         <!-- 사이드 바 -->
