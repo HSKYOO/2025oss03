@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form_style.html</title>
+</head>
+
+<!-- 스타일 -->
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        background-color: aliceblue;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .Billing {
+        margin: 1px;
+    }
+
+    .names {
+        display: flex;
+        flex-direction: row;
+        gap: 400px;
+    }
+</style>
+
+<!-- 내용 -->
+<body>
+    <!-- 헤더 -->
+    <div class="header">
+        <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png" alt="Bootstrap Logo" width="80" height="70">
+        <h2>Checkout form</h2>
+        <a> Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</a>
+    </div>
+    <!-- 메인 (1. 결제칸 2. 사이드 바) -->
+    <div class="main">
+        <!-- 결제 파트 -->
+        <div class="Billing">
+            <h3>Billing address</h3>
+
+            <div class="names">
+                <label for="fname">First name</label>
+                <label for="lname">Last name</label></br>   
+            </div>
+
+            <div class="names">
+                <input type="text" size="16" name="fname" id="fname" pattern="\d*">
+                <input type="text" size="16" name="lname" id="lname" pattern="\d*">
+            </div>
+
+            <div class="username">
+                <label for="username">Username</label></br>
+                <input type="text" size="40" name="username" id="username" placeholder="Username">
+            </div>
+            
+            <div class="email">
+                <label for="email">Email</label>
+                <label for="email" style="font-weight: 300;">(Optional)</label></br>
+                <input type="text" size="40" name="email" id="email" placeholder="you@example.com">
+            </div>
+
+            <div class="address">
+                <label for="address1">Address</label></br>
+                <input type="text" size="40" name="address1" id="address1" placeholder="1234 Main St">
+            </div>
+
+            <div class="address">
+                <label for="address2">Address 2</label>
+                <label for="address2" style="font-weight: 300;">(Optional)</label></br>
+                <input type="text" size="40" name="address2" id="address2" placeholder="Apartment or suite" >
+            </div>
+
+
+        </div>
+        <!-- 사이드 바 -->
+        <div class="sidebar">
+
+        </div>
+    </div>
+    
+</body>
+</html>
