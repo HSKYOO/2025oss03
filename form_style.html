@@ -92,7 +92,7 @@
     .form-row .form-group {
         flex: 1;
     }
-
+    
     input[type="text"], select {
         width: 100%;
         padding: 8px 12px;
@@ -300,6 +300,7 @@
                         <label for="username">Username</label></br>
                         <div class="input-group">
                             <span class="input-group-text">@</span>
+                            <!-- 길이가 다른 끝과 안맞음... 왜? -->
                             <input type="text" name="username" id="username" placeholder="Username" style="border-radius: 0 6px 6px 0;" required>
                         </div>
                     </div>
@@ -396,7 +397,7 @@
                     </div>
                     
                     
-                    <div class="form-row" style="margin-top: 25px;">
+                    <div class="form-row" style="margin-top: 25px; gap: 40px;">
                         <!-- Name on card -->
                         <div class="form-group">
                             <label for="cardName">Name on card</label>
@@ -410,7 +411,7 @@
                         </div>
                     </div>
 
-                    <div class="form-row">
+                    <div class="form-row" style="gap: 40px;">
                         <!-- Expiration -->
                         <div class="form-group">
                             <label for="expiration">Expiration</label>
@@ -421,11 +422,11 @@
                             <input type="text" id="CVV" name="CVV" required>
                         </div>
                     </div>
-
+                    
                     <!-- 요청 사항 -->
                     <div class="form-group">
-                        <label for="request_term">Request Term</label>
-                        <textarea id="request_term" name="request_term" rows="4" cols="32"></textarea>
+                        <label for="request_term">Request Term</label><br><br>
+                        <textarea id="request_term" name="request_term" rows="4" cols="100"></textarea>
                     </div>
                     
                     <!-- 경계선 -->
