@@ -4,387 +4,618 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>form.html</title>
-    <!-- 스타일 -->
-    <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: 'Inter', sans-serif;
-            color: #212529;
-            margin: 0;
-            padding: 40px 20px;
-        }
-        
-        .container {
-            width: 100%;
-            margin: 0 auto;
-            max-width: 960px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            font-size: 16px;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .header h2 {
-            font-weight: 500;
-            font-size: 32px;
-            margin: 10px 0;
-        }
-
-        .header p {
-            font-size: 18px;
-            font-weight: 300;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-            color: #6C757D;
-        }
-
-        .main {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-        }
-        
-        .billing-address {
-            flex: 2;
-            min-width: 300px;
-            max-width: 600px;
-        }
-
-        .sidebar {
-            flex: 1;
-            min-width: 280px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 20px;
-        }
-
-        .form-row .form-group {
-            flex: 1;
-        }
-        
-        input,
-        select,
-        textarea {
-            width: 100%;
-            padding: 8px 12px;
-            font-size: 16px;
-            font-weight: 400;
-            border: 1px solid #ced4da;
-            border-radius: 6px;
-            box-sizing: border-box;
-            background-repeat: no-repeat;
-            background-position: right 12px center;
-            background-size: 16px 16px;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            border-color: #86b7fe;
-            outline: 0;
-            box-shadow: 0 0 0 4px rgba(13, 110, 253, .25);
-        }
-        
-        .is-valid {
-            border-color: #198754;
-            padding-right: 40px;
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-        }
-        .is-valid:focus {
-            border-color: #198754;
-            box-shadow: 0 0 0 4px rgba(25, 135, 84, .25);
-        }
-
-        .is-invalid {
-            border-color: #dc3545;
-            padding-right: 40px;
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
-        }
-        .is-invalid:focus {
-            border-color: #dc3545;
-            box-shadow: 0 0 0 4px rgba(220, 53, 69, .25);
-        }
-
-        .invalid-feedback {
-            display: none;
-            width: 100%;
-            margin-top: 4px;
-            font-size: 14px;
-            color: #dc3545;
-        }
-        
-        .is-invalid ~ .invalid-feedback {
-            display: block;
-        }
-        
-        .line_divide {
-            border-top: 1px solid #dee2e6;
-            margin: 30px 0;
-        }
-
-        .button {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            color: white;
-            font-weight: 500;
-            font-size: 18px;
-            background-color: #0D6EFD;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-        }
-        .button:hover {
-            background-color: #0a53be;
-        }
-
-        .your_cart {
-            list-style-type: none;
-            padding: 0;
-            border: 1px solid #dee2e6;
-            border-radius: 6px;
-        }
-        .your_cart li {
-            padding: 12px 15px;
-        }
-        .your_cart li:not(:last-child) {
-            border-bottom: 1px solid #dee2e6;
-        }
-        .product {
-            display: flex;
-            justify-content: space-between;
-        }
-    </style>
 </head>
+
+<!-- 스타일 -->
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Inter', sans-serif;
+        color: #212529;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 40px 20px;
+        max-width: 960px;
+    }
+
+    label {
+        margin-bottom: 8px;
+        font-weight: 500;
+        font-size: 16px;
+    }
+
+    label .optional {
+        color: #6C757D;
+        font-weight: 400;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .header > h2 {
+        font-weight: 500;
+        font-size: 32px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .header > a {
+        font-size: 18px;
+        font-weight: 300;
+        margin: 0 160px 0 160px;
+        margin-bottom: 90px;
+        line-height: 1.6;
+        color: #6C757D;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: row;
+        /* 윗쪽에서 시작 */
+        align-items: flex-start;
+        justify-content: center;
+        gap: 60px;
+        padding: 0 20px;
+    }
+
+    /* -- 여기서부터 Billing  파트 -------------------------------------------------------------------- */
+    .Billing {
+        /* billing : sidebar = 2 : 1 */
+        flex: 1; 
+    }
+
+    .Billing > h3 {
+        font-size:  24px;
+        font-weight: 500;
+        margin-bottom: 25px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-row {
+        display: flex;
+        gap: 20px;
+    }
+
+    .form-row .form-group {
+        flex: 1;
+    }
+
+    input, select {
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 16px 16px;
+    }
+    
+    input[type="text"], select {
+        width: 100%;
+        padding: 8px 12px;
+        font-size: 16px;
+        font-weight: 400;
+        border: 1px solid #ced4da;
+        border-radius: 6px;
+    }
+
+    input[type="text"]:focus, select:focus {
+        color: #6C757D;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        border-color: #0D6EFD;
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
+    }
+
+    /* V / X 아이콘 */
+    .form-group::after {
+        content: '';
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        right: 12px;
+        top: 36px;
+        display: none;
+    }
+
+    /* 공통 그룹 and flex 부여*/
+    .input-group {
+        display: flex;
+    }
+
+    .input-group-text {
+        display: flex;
+        align-items: center;
+        padding: 8px 12px;
+        font-size: 16px;
+        font-weight: 400;
+        color: #212529;
+        text-align: center;
+        background-color: #e9ecef;
+
+        border: 1px solid #ced4da;
+        border-right: none;
+        border-radius: 6px 0 0 6px;
+    }
+
+    .input-group-input {
+        border-radius: 0 6px 6px 0;
+    }
+
+    /* 경계선 */
+    .line_divide {
+        /* border: 1px solid black; */
+        background-color: rgba(111, 106, 106, 0.397);
+        width: 600px;
+        height: 0.5px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .form-check {
+        padding-left: 0;
+        margin-bottom: 3px;
+    }
+
+    .form-check > input {
+        margin-right: 10px;
+    }
+
+    .form-check > label {
+        display: inline;
+        font-weight: 400;
+    }
+
+    .form-text {
+        font-size: 14px;
+        color: #6C757D;
+        margin-top: 5px;
+    }
+
+    .button {
+        display: flex;
+        width: 100%;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 500;
+        font-size: 18px;
+        background-color: #0D6EFD;
+        border-radius: 8px;
+        border: none;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .button:hover {
+        background-color: #0a53be;
+    }
+
+    /* -- 여기서 부터 사이드 바--------------------------------------------------------------------------------------------------- */
+    .sidebar {
+        width: 350px;
+        margin-left: 30px;
+    }
+
+    .sidebar_header {
+        display: flex;
+        flex-direction: row;
+        gap: 140px;
+    }
+
+    .your_cart {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        width: 280px;
+        padding: 5px 0;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+    }
+
+    .your_cart > li {
+        padding-left:20px;
+        padding-top: 5px;
+    }
+
+    .your_cart > li:not(:last-child) {
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .product {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 18px;
+    }
+
+    .Promote {
+        padding: 7px;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+        margin-top: 15px;
+        width: 265px;
+    }
+
+    .Promote .promote-input {
+        display: flex;
+    }
+
+    /* 아니 하 진짜 왜 안되는 거임...... */
+    .promote-input > input {
+        width: 190px;
+        height: 39px;
+        font-size: 15px;
+        border-radius: 6px 0 0 6px;
+        padding: 0 10px;
+        font-weight: 300;
+
+        border: 1px solid #ced4da;
+        /* 오른쪽 테두리 제거 */
+        border-right: none;
+
+        outline: none;
+        box-sizing: border-box;
+    }
+    
+    .promote-input > a {
+        display: flex;
+        align-items: center;
+
+        padding: 0px 13px 0 11px;
+        border: 1px solid #6C757D;
+        border-radius: 0 6px 6px 0;
+        height: 38px;
+        text-align: center;
+        background-color: #6C757D;
+        color: white;
+        width: 50px;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    
+    /* focus -> 1. 파란색(처음 입력시) 2. 빨간색(required 입력 안됬을 시) 3.초록색(입력값이 있을때) */
+    
+    .is-valid {
+        border-color: #198754;
+        padding-right: 40px;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    }
+    /* 채워진 칸 */
+    .form-group.valid input, .form-group.valid select, .form-group.valid textarea {
+        border-color: #198754;
+    }
+
+    .form-group.valid input:focus, .form-group.valid select:focus, .form-group.valid textarea:focus {
+        border-color: #198754;
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(25, 135, 84, 0.25);
+    }
+
+    /* 빈 칸 */
+    .is-invalid {
+        border-color: #dc3545;
+        padding-right: 40px;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    }
+
+    .form-group.invalid input, .form-group.invalid select, .form-group.invalid textarea {
+        border-color: #dc3545;
+    }
+
+    .form-group.invalid input:focus, .form-group.invalid select:focus, .form-group.invalid textarea:focus {
+        border-color: #dc3545;
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.25);
+    }
+
+    /* 빈칸 밑에 안써졌다고 쓰기 */
+    .invalid-feedback {
+        display: none;
+        width: 100%;
+        margin-top: 4px;
+        font-size: 14px;
+        color:#dc3545;
+    }
+
+    /*  숨긴거 보여주기 */
+    .is-invalid + .invalid-feedback {
+        display: block;
+    }
+
+</style>
 
 <!-- 내용 -->
 <body>
+
     <div class="container">
         <!-- 헤더 -->
         <div class="header">
-            <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png" alt="Bootstrap Logo" width="72" height="57">
+            <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png" alt="Bootstrap Logo" width="80" height="70" style="padding-top: 25px;">
             <h2>Checkout form</h2>
-            <p>Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+            <a> Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</a>
         </div>
-        
         <!-- 메인 (1. 결제칸 2. 사이드 바) -->
         <div class="main">
             <!-- 결제 파트 -->
-            <div class="billing-address">
-                <form id="checkout-form" novalidate>
-                    <h3>Billing address</h3>
-
+            <div class="Billing">
+                <h3>Billing address</h3>
+                <form>
                     <!-- 이름 -->
-                    <div class="form-row">
+                    <div class="form-row" style="gap: 40px;">
                         <div class="form-group">
                             <label for="fname">First name</label>
-                            <input type="text" id="fname" required>
-                            <div class="invalid-feedback">Valid first name is required.</div>
+                            <input type="text" size="16" name="fname" id="fname" pattern="\d*" required>
                         </div>
                         <div class="form-group">
                             <label for="lname">Last name</label>
-                            <input type="text" id="lname" required>
-                            <div class="invalid-feedback">Valid last name is required.</div>
+                            <input type="text" size="16" name="lname" id="lname" pattern="\d*" required>
                         </div>
                     </div>
-                    
+
                     <!-- Username -->
                     <div class="form-group">
-                         <label for="username">Username</label>
-                         <input type="text" id="username" placeholder="Username" required>
-                         <div class="invalid-feedback">Your username is required.</div>
+                        <label for="username">Username</label></br>
+                        <div class="input-group">
+                            <span class="input-group-text">@</span>
+                            <!-- 길이가 다른 끝과 안맞음... 왜? -->
+                            <input type="text" name="username" id="username" placeholder="Username" style="border-radius: 0 6px 6px 0;" required>
+                        </div>
                     </div>
-                    
+
                     <!-- 이메일 -->
                     <div class="form-group">
-                        <label for="email">Email <span style="color:#6C757D; font-weight: 400;">(Optional)</span></label>
-                        <input type="text" id="email" placeholder="you@example.com">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email" placeholder="you@example.com" required>
                     </div>
-                    
+
                     <!-- 주소 1 -->
                     <div class="form-group">
-                        <label for="address">Address</label>
-                        <input type="text" id="address" placeholder="1234 Main St" required>
-                        <div class="invalid-feedback">Please enter your shipping address.</div>
+                        <label for="address1">Address</label></br>
+                        <input type="text" name="address1" id="address1" placeholder="1234 Main St" required>
+
                     </div>
 
                     <!-- 주소 2 -->
                     <div class="form-group">
-                        <label for="address2">Address 2 <span style="color:#6C757D; font-weight: 400;">(Optional)</span></label>
-                        <input type="text" id="address2" placeholder="Apartment or suite">
+                        <label for="address2">Address 2</label>
+                        <label for="address2" style="font-weight: 300;">(Optional)</label></br>
+                        <input type="text" size="40" name="address2" id="address2" placeholder="Apartment or suite" required >
                     </div>
                     
                     <!-- 국가 / 주 / zip -->
+                    
                     <div class="form-row">
+                        <!-- 국가 -->
                         <div class="form-group">
                             <label for="country">Country</label>
-                            <select id="country" required>
-                                <option value="">Choose...</option>
-                                <option>United States</option>
+                            <select name="country">
+                                <option value="1">Choose...</option>
+                                <option value="2">United States</option>
                             </select>
-                            <div class="invalid-feedback">Please select a valid country.</div>
                         </div>
+
+                        <!-- 주 -->
                         <div class="form-group">
                             <label for="state">State</label>
-                            <select id="state" required>
-                                <option value="">Choose...</option>
-                                <option>California</option>
-                            </select>
-                            <div class="invalid-feedback">Please provide a valid state.</div>
+                                <select name="state">
+                                    <option value="1">Choose...</option>
+                                    <option value="2">California</option>
+                                </select>
                         </div>
+                        
+                        <!-- zip -->
                         <div class="form-group">
                             <label for="zip">Zip</label>
-                            <input type="text" id="zip" required>
-                            <div class="invalid-feedback">Zip code required.</div>
+                            <input type="text" name="zip" id="zip">
                         </div>
                     </div>
-                    
-                    <!-- 경계선 -->
-                    <div class="line_divide"></div>
-                    
-                    <!-- 체크 박스 -->
+
+                    <!-- 생년 월일 -->
                     <div class="form-group">
-                        <input type="checkbox" id="same-address">
-                        <label for="same-address" style="display: inline;">Shipping address is the same as my billing address</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="checkbox" id="save-info">
-                        <label for="save-info" style="display: inline;">Save this information for next time</label>
+                        <label for="birthdate">Birth Date</label><br>
+                        <input type="date" id="birthdate" name="birthdate">
                     </div>
 
                     <!-- 경계선 -->
                     <div class="line_divide"></div>
 
+                    <!-- 체크 박스 2개 -->
+                    <div class="form-check">
+                        <input type="checkbox" id="checkbox_1" name="checkbox_1">
+                        <label for="checkbox_1">Shipping address is the same as my billing address</label>
+                    </div>
+                    
+                    <div class="form-check">
+                        <input type="checkbox" id="checkbox_2" name="checkbox_2">        
+                        <label for="checkbox_2">Save this information for next time</label>                    
+                    </div>
+                    
+                    <!-- 경계선 -->
+                    <div class="line_divide"></div>
+                    
                     <!-- Payment -->
-                    <h3>Payment</h3>
+                    <h3 style="font-size: 22px; margin-bottom: 20px;">Payment</h3>
+                    
                     <div class="form-group">
-                        <div>
-                            <input type="radio" name="paymentMethod" id="credit" checked required>
-                            <label for="credit" style="display: inline;">Credit card</label>
+                        <div class="form-check">
+                            <input type="radio" id="credit" name="card" value="C_card">
+                            <label for="credit">Credit card</label>
                         </div>
-                        <div>
-                            <input type="radio" name="paymentMethod" id="debit" required>
-                            <label for="debit" style="display: inline;">Debit card</label>
+                        
+                        <div class="form-check">
+                            <input type="radio" id="debit" name="card" value="C_card">
+                            <label for="debit">Debit card</label>
                         </div>
-                        <div>
-                            <input type="radio" name="paymentMethod" id="paypal" required>
-                            <label for="paypal" style="display: inline;">PayPal</label>
+
+                        <div class="form-check">
+                            <input type="radio" id="paypal" name="card" value="C_card">
+                            <label for="paypal">Paypal</label>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="form-row" style="margin-top: 25px; gap: 40px;">
+                        <!-- Name on card -->
+                        <div class="form-group">
+                            <label for="cardName">Name on card</label>
+                            <input type="text" id="cardName" required>
+                            <p class="form-text">Full name as displayed on card</p>
+                        </div>
+                        <!-- Credit card  number -->
+                        <div class="form-group">
+                            <label for="cardNumber">Credit card number</label>
+                            <input type="text" id="cardNumber" required>
                         </div>
                     </div>
 
-                    <div class="form-row">
+                    <div class="form-row" style="gap: 40px;">
+                        <!-- Expiration -->
                         <div class="form-group">
-                            <label for="cc-name">Name on card</label>
-                            <input type="text" id="cc-name" required>
-                            <div class="invalid-feedback">Name on card is required</div>
+                            <label for="expiration">Expiration</label>
+                            <input type="text" id="expiration" name="expiration" required>
                         </div>
                         <div class="form-group">
-                            <label for="cc-number">Credit card number</label>
-                            <input type="text" id="cc-number" required>
-                            <div class="invalid-feedback">Credit card number is required</div>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="cc-expiration">Expiration</label>
-                            <input type="text" id="cc-expiration" required>
-                            <div class="invalid-feedback">Expiration date required</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="cc-cvv">CVV</label>
-                            <input type="text" id="cc-cvv" required>
-                            <div class="invalid-feedback">Security code required</div>
+                            <label for="CVV">CVV</label>
+                            <input type="text" id="CVV" name="CVV" required>
                         </div>
                     </div>
-
+                    
+                    <!-- 요청 사항 -->
+                    <div class="form-group">
+                        <label for="request_term">Request Term</label><br><br>
+                        <textarea id="request_term" name="request_term" rows="4" cols="100"></textarea>
+                    </div>
+                    
                     <!-- 경계선 -->
                     <div class="line_divide"></div>
 
                     <!-- 추가 버튼 -->
-                    <h3>Add items to list</h3>
-                     <div class="form-group">
-                        <label for="itemInput">Item</label>
-                        <input type="text" id="itemInput" placeholder="추가할 항목을 적어주세요 :D">
-                        <button type="button" id="addButton" class="button" style="margin-top:10px;">추가</button>
-                    </div>
-                    <ul id="itemList">
-                        <li>apple</li>
-                        <li>banana</li>
-                        <li>lemon</li>
-                    </ul>
-                    <button type="button" id="deleteButton" class="button" style="background-color:#6C757D; margin-top:10px;">전체 삭제</button>
+                    <div class="form-group">
+                        <h3>Add Button</h3>
+                        <div>
+                            <input type="text" id="fruits" placeholder="추가할 항목을 적어주세요 :D">
+                            <button id="add">추가</button>
+                        </div>
+                        <button id="reset">삭제</button>
 
-                    <!-- 경계선 -->
-                    <div class="line_divide"></div>
+                        <ul id="fruitlist">
+                            <li>apple</li>
+                            <li>banana</li>
+                            <li>lemon</li>
+                        </ul>
+                    </div>
 
                     <!-- checkout 버튼 -->
                     <button type="button" class="button" id="submitButton">Continue to checkout</button>
                 </form>
+                
             </div>
     
             <!-- 사이드 바 -->
             <div class="sidebar">
-                <h3>Your cart</h3>
+                <div class="sidebar_header">
+                    <div style="font-size: 20px; color: #0D6EFD; text-align: left;">Your cart</div>
+                    <div style="font-size: 18px; color: white; text-align: center; background-color: #0D6EFD; border-radius: 25px; width: 35px; align-items: center; padding: 3px 0 0 0; font-weight: 700; height: 28px;">3</div>
+                </div>
+                
                 <!-- 리스트 -->
                 <ul class="your_cart">
                     <li>
                         <div class="product">
-                            <span>Product Name</span>
-                            <span style="color:#6C757D;">$12</span>
+                            <span style="font-size: 15px; font-weight: 400;">Product Name</span>
+                            <span style="color:rgb(111, 106, 106) ;">$12</span>
                         </div>
+                        
+                        <p style="font-size: 13px; color:rgb(111, 106, 106); margin-top:0 ;">Brief description</p>
                     </li>
+
                     <li>
                         <div class="product">
-                           <span>Second Product</span>
-                           <span style="color:#6C757D;">$8</span>
+                            <span style="font-size: 15px; font-weight: 400;">Second Product</span>
+                            <span style="color:rgb(111, 106, 106) ;">$8</span>
                         </div>
+                        
+                        <p style="font-size: 13px; color:rgb(111, 106, 106); margin-top:0 ;">Brief description</p>
                     </li>
-                    <li style="background-color: #f8f9fa;">
+
+                    <li>
                         <div class="product">
-                           <span style="color:#198754;">Total (USD)</span>
-                           <strong>$20</strong>
+                            <span style="font-size: 15px; font-weight: 400;">Third item</span>
+                            <span style="color:rgb(111, 106, 106);">$5</span>
                         </div>
+                        
+                        <p style="font-size: 13px; color:rgb(111, 106, 106); margin-top:0 ;">Brief description</p>
+                    </li>
+
+                    <li style="background-color: #e9ecef;">
+                        <div class="product">
+                            <span style="font-size: 15px; font-weight: 400; color:#198754 ;">Promo code</span>
+                            <span style="color:#198754 ;">-$5</span>
+                        </div>
+                        
+                        <p style="font-size: 13px; color:#198754; margin-top:0 ;">EXAMPLECODE</p>
+                    </li>
+                    
+                    <li style="margin-bottom: 10px;">
+                        <div class="product">
+                            <span style="font-size: 15px; font-weight: 400;">Total (USD)</span>
+                            <span style="color:black; font-weight: 600;">$20</span>
+                        </div>
+                        
                     </li>
                 </ul>
+
+                <!-- Promo code -->
+                <div class="Promote">
+                    <div class="promote-input">
+                        <input type="text" id="promocode" name="promocode" placeholder="Promo code">
+                        <a href="https://2025oss03.vercel.app/form_style.html">Redeem</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     
     <!-- js 구현 -->
     <script>
+        // DOM이 완전히 로드된 후에 스크립트를 실행합니다.
         document.addEventListener('DOMContentLoaded', function() {
             
             const form = document.getElementById('checkout-form');
             const submitButton = document.getElementById('submitButton');
 
             submitButton.addEventListener('click', function() {
+                // form.elements를 사용해 form 안의 모든 입력 필드를 가져옵니다.
                 const elements = form.elements;
                 let isFormValid = true;
 
                 for (let i = 0; i < elements.length; i++) {
                     const field = elements[i];
+
+                    // 'required' 속성 검사
                     if (field.hasAttribute('required')) {
+                        // 입력값이 비어있는지 확인
                         if (field.value.trim() === '') {
+                            // 비어있으면 is-invalid 클래스 추가
                             field.classList.remove('is-valid');
                             field.classList.add('is-invalid');
                             isFormValid = false;
                         } else {
+                            // 채워져 있으면 is-valid 클래스 추가
                             field.classList.remove('is-invalid');
                             field.classList.add('is-valid');
                         }
@@ -396,6 +627,8 @@
                 }
             });
 
+
+            // --- Lab 4: 동적 목록 (Dynamic List) ---
             const itemInput = document.getElementById('itemInput');
             const addButton = document.getElementById('addButton');
             const deleteButton = document.getElementById('deleteButton');
@@ -404,7 +637,7 @@
             function addItem() {
                 const text = itemInput.value.trim();
                 if (text !== '') {
-                    const newItem = document.createElement('li');
+                    const newItem = document.createElement('li'); // 'li'로 수정
                     newItem.textContent = text;
                     itemList.appendChild(newItem);
                     itemInput.value = '';
@@ -419,9 +652,9 @@
             addButton.addEventListener('click', addItem);
             deleteButton.addEventListener('click', clearList);
             
+            // 입력창에서 Enter 키를 눌렀을 때도 추가되도록
             itemInput.addEventListener('keydown', function(event) {
                 if (event.key === 'Enter') {
-                    event.preventDefault(); 
                     addItem();
                 }
             });
@@ -429,4 +662,3 @@
     </script>
 </body>
 </html>
-
