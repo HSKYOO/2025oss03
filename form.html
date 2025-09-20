@@ -108,6 +108,8 @@
 
     input:focus, select:focus, textarea:focus {
         border-color: #0D6EFD;
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
     }
 
     /* V / X 아이콘 */
@@ -280,19 +282,55 @@
     }
     
     /* focus -> 1. 파란색(처음 입력시) 2. 빨간색(required 입력 안됬을 시) 3.초록색(입력값이 있을때) */
+    
+    /* 채워진 칸 */
     .form-group.valid input, .form-group.valid select, .form-group.valid textarea {
         border-color: #198754;
     }
 
     .form-group.valid input:focus, .form-group.valid select:focus, .form-group.valid textarea:focus {
         border-color: #198754;
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(25, 135, 84, 0.25);
     }
 
-    /* 아이콘 드러내기 (체크) */
+    /* 아이콘 드러내기 (V) */
     .form-group.valid::after {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
         display: block;
     }
+
+    /* 빈 칸 */
+    .form-group.invalid input, .form-group.invalid select, .form-group.invalid textarea {
+        border-color: #dc3545;
+    }
+
+    .form-group.invalid input:focus, .form-group.invalid select:focus, .form-group.invalid textarea:focus {
+        border-color: #dc3545;
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.25);
+    }
+
+    /* 아이콘 드러내기 (X) */
+    .form-group.invalid::after {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+        display: block;
+    }
+
+    /* 빈칸 밑에 안써졌다고 쓰기 */
+    .invalid-feedback {
+        display: none;
+        width: 100%;
+        margin-top: 4px;
+        font-size: 14px;
+        color:#dc3545;
+    }
+
+    /*  숨긴거 보여주기 */
+    .form-group.invalid .invalid-feedback {
+        display: block;
+    }
+
 </style>
 
 <!-- 내용 -->
@@ -461,7 +499,6 @@
                     <div class="line_divide"></div>
 
                     <!-- checkout 버튼 -->
-                    <!-- <div class="button">Continue to checkout</div> -->
                     <button type="button" class="button" onclick="validdataForm()">Continue to checkout</button>
                 </form>
                 
@@ -470,7 +507,7 @@
             <!-- 사이드 바 -->
             <div class="sidebar">
                 <div class="sidebar_header">
-                    <div style="font-size: 25px; color: #0D6EFD; text-align: left;">Your cart</div>
+                    <div style="font-size: 20px; color: #0D6EFD; text-align: left;">Your cart</div>
                     <div style="font-size: 18px; color: white; text-align: center; background-color: #0D6EFD; border-radius: 25px; width: 35px; align-items: center; padding: 3px 0 0 0; font-weight: 700; height: 28px;">3</div>
                 </div>
                 
@@ -534,7 +571,45 @@
     
     <!-- js 구현 -->
     <script>
-        
+        function validdataForm() {
+            const requierd = document.getElementById('checkout-form');
+            const elements = form.elements;
+            let isValid = true;
+
+            // 각 elements 검사
+            for (let i = 0; i < elements.length; i++){
+                const field = elements[i];
+
+                // required 를 가졌는지 확인
+                if (field.hasAttribute('required')) {
+                    // tree로 확인하기
+                    let parent = field.parentNode;
+                    // 끝까지, tree origin 까지 도달하면 false return
+                    while (parent && !parent.classlist.contains('form-group')) {
+                        parent = parent.parentNode
+                    }
+                    // origin 값 저장
+                    const formgroup = parent;
+
+                    if (formgroup == True) {
+                        if (field.value.trim() == '') {
+                            // 비어있는 경우 -> invalid
+                            formgroup.classlist.remove('valid');
+                            formgroup.classlist.add('invalid');
+                            isValid = false;
+                        } else {
+                            formgroup.classlist.remove('invalid');
+                            formgroup.classlist.add('valid');
+                        }
+                    }
+                }
+            }
+
+            // 성공시 alert
+            if (isValid == True) {
+                alert('성공적으로 제출됨!');
+            }
+        }
     </script>
 </body>
 </html>
