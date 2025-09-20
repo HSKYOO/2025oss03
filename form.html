@@ -280,8 +280,6 @@
     }
     
     /* focus -> 1. 파란색(처음 입력시) 2. 빨간색(required 입력 안됬을 시) 3.초록색(입력값이 있을때) */
-    
-    /* 채워진 칸 */
     .form-group.valid input, .form-group.valid select, .form-group.valid textarea {
         border-color: #198754;
     }
@@ -290,41 +288,11 @@
         border-color: #198754;
     }
 
-    /* 아이콘 드러내기 (V) */
+    /* 아이콘 드러내기 (체크) */
     .form-group.valid::after {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
         display: block;
     }
-
-    /* 빈 칸 */
-    .form-group.invalid input, .form-group.invalid select, .form-group.invalid textarea {
-        border-color: #dc3545;
-    }
-
-    .form-group.invalid input:focus, .form-group.invalid select:focus, .form-group.invalid textarea:focus {
-        border-color: #dc3545;
-    }
-
-    /* 아이콘 드러내기 (X) */
-    .form-group.valid::after {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
-        display: block;
-    }
-
-    /* 빈칸 밑에 안써졌다고 쓰기 */
-    .invalid-feedback {
-        display: none;
-        width: 100%;
-        margin-top: 4px;
-        font-size: 14px;
-        color:#dc3545;
-    }
-
-    /*  숨긴거 보여주기 */
-    .form-group.invalid .invalid-feedback {
-        display: block;
-    }
-
 </style>
 
 <!-- 내용 -->
@@ -566,22 +534,7 @@
     
     <!-- js 구현 -->
     <script>
-        function validdataForm() {
-            const requierd = document.getElementById('checkout-form');
-            const elements = form.elements;
-            let isValid = true;
-
-            // 각 elements 검사
-            for (let i = 0; i < elements.length; i++){
-                const field = elements[i];
-
-                
-            }
-
-            if (isValid == True) {
-                alert('성공적으로 제출됨!');
-            }
-        }
+        
     </script>
 </body>
 </html>
