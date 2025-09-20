@@ -148,6 +148,53 @@
         justify-content: space-between;
         margin-right: 18px;
     }
+
+    .Promote {
+        padding: 7px;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+        margin-top: 15px;
+        width: 265px;
+    }
+
+    .Promote .promote-input {
+        display: flex;
+    }
+
+    /* 아니 하 진짜 왜 안되는 거임...... */
+    .promote-input > input {
+        width: 190px;
+        height: 39px;
+        font-size: 15px;
+        border-radius: 6px 0 0 6px;
+        padding: 0 10px;
+        font-weight: 300;
+
+        border: 1px solid #ced4da;
+        /* 오른쪽 테두리 제거 */
+        border-right: none;
+
+        outline: none;
+        box-sizing: border-box;
+    }
+    
+    .promote-input > a {
+        display: flex;
+        align-items: center;
+
+        padding: 0px 10px;
+        border: 1px solid #6C757D;
+        border-radius: 0 6px 6px 0;
+        height: 38px;
+        text-align: center;
+        background-color: #6C757D;
+        color: white;
+        width: 50px;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+    }
     /* focus -> 1. 파란색(처음 입력시) 2. 빨간색(required 입력 안됬을 시) 3.초록색(입력값이 있을때) */
 </style>
 
@@ -317,6 +364,14 @@
                     
                 </li>
             </ul>
+
+            <!-- Promo code -->
+            <div class="Promote">
+                <div class="promote-input">
+                    <input type="text" id="promocode" name="promocode" placeholder="Promo code">
+                    <a href="">Redeem</a>
+                </div>
+            </div>
         </div>
     </div>
     
