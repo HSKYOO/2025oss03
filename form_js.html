@@ -577,7 +577,9 @@
 
                 // required 를 가졌는지 확인
                 if (field.hasAttribute('required')) {
+                    // tree로 확인하기
                     let parent = field.parentNode;
+                    // 끝까지, tree origin 까지 도달하면 false return
                     while (parent && !parent.classlist.contains('form-group')) {
                         parent = parent.parentNode
                     }
