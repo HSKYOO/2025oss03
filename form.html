@@ -498,6 +498,22 @@
                     <!-- 경계선 -->
                     <div class="line_divide"></div>
 
+                    <!-- 추가 버튼 -->
+                    <div class="form-group">
+                        <h3>Add Button</h3>
+                        <div>
+                            <input type="text" id="fruits" placeholder="추가할 항목을 적어주세요 :D">
+                            <button id="add">추가</button>
+                        </div>
+                        <button id="reset">삭제</button>
+
+                        <ul id="fruitlist">
+                            <li>apple</li>
+                            <li>banana</li>
+                            <li>lemon</li>
+                        </ul>
+                    </div>
+
                     <!-- checkout 버튼 -->
                     <button type="button" class="button" onclick="validdataForm()">Continue to checkout</button>
                 </form>
@@ -610,6 +626,37 @@
                 alert('성공적으로 제출됨!');
             }
         }
+    </script>
+    <script>
+        const input = document.getElementById('fruits');
+        const addButton = document.getElementById('add');
+        const deleteButton = document.getElementById('delete');
+        const itmelist = document.getElementById('fruitlist');
+
+        function addItem() {
+            // 공백 지우기
+            const text = input.value.trim();
+
+            // 공백이 아닌경우 진행
+            if(text !== '') {
+                const newItem = document.createElement('list');
+                newItem.textContent = text;
+                // fruitlist에 추가
+                fruitlist.appendChild(newItem);
+
+                input.value = '';
+                input.focus();
+            }
+        }
+
+        // 안의 모든 HTML 내용 삭제
+        function reset() {
+            fruitlist.innerHTML = '';
+        }
+
+        addButton.addEventListener('click', addItem);
+        deleteButton.addEventListener('click', reset);
+
     </script>
 </body>
 </html>
