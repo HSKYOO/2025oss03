@@ -575,6 +575,7 @@
             for (let i = 0; i < elements.length; i++){
                 const field = elements[i];
 
+                // required 를 가졌는지 확인
                 if (field.hasAttribute('required')) {
                     let parent = field.parentNode;
                     while (parent && !parent.classlist.contains('form-group')) {
@@ -582,10 +583,21 @@
                     }
                     const formgroup = parent;
 
-                    
+                    if (formgroup == True) {
+                        if (field.value.trim() == '') {
+                            // 비어있는 경우 -> invalid
+                            formgroup.classlist.remove('valid');
+                            formgroup.classlist.add('invalid');
+                            isValid = false;
+                        } else {
+                            formgroup.classlist.remove('invalid');
+                            formgroup.classlist.add('valid');
+                        }
+                    }
                 }
             }
 
+            // 성공시 alert
             if (isValid == True) {
                 alert('성공적으로 제출됨!');
             }
