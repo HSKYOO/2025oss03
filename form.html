@@ -504,24 +504,24 @@
                     <div class="line_divide"></div>
 
                     <!-- 추가 버튼 -->
-                    <div class="form-group">
-                        <h3>Add Button</h3>
-                        <div>
-                            <input type="text" id="fruits" placeholder="추가할 항목을 적어주세요 :D">
-                            <button id="add">추가</button>
-                        </div>
-                        <button id="reset">삭제</button>
-
-                        <ul id="fruitlist">
-                            <li>apple</li>
-                            <li>banana</li>
-                            <li>lemon</li>
-                        </ul>
+                    <h3>Add items to list</h3>
+                     <div class="form-group">
+                        <label for="itemInput">Item</label>
+                        <input type="text" id="itemInput" placeholder="추가할 항목을 적어주세요 :D">
+                        <button type="button" id="addButton" class="button" style="margin-top:10px;">추가</button>
                     </div>
+                    <ul id="itemList">
+                        <li>apple</li>
+                        <li>banana</li>
+                        <li>lemon</li>
+                    </ul>
+                    <button type="button" id="deleteButton" class="button" style="background-color:#6C757D; margin-top:10px;">전체 삭제</button>
+
+                    <!-- 경계선 -->
+                    <div class="line_divide"></div>
 
                     <!-- checkout 버튼 -->
                     <button type="button" class="button" id="submitButton">Continue to checkout</button>
-                </form>
                 
             </div>
     
@@ -590,32 +590,26 @@
         </div>
     </div>
     
-    <!-- js 구현 -->
+   <!-- js 구현 -->
     <script>
-        // DOM이 완전히 로드된 후에 스크립트를 실행합니다.
         document.addEventListener('DOMContentLoaded', function() {
             
+            // --- 유효성 검사 (Validation) ---
             const form = document.getElementById('checkout-form');
             const submitButton = document.getElementById('submitButton');
 
             submitButton.addEventListener('click', function() {
-                // form.elements를 사용해 form 안의 모든 입력 필드를 가져옵니다.
                 const elements = form.elements;
                 let isFormValid = true;
 
                 for (let i = 0; i < elements.length; i++) {
                     const field = elements[i];
-
-                    // 'required' 속성 검사
                     if (field.hasAttribute('required')) {
-                        // 입력값이 비어있는지 확인
                         if (field.value.trim() === '') {
-                            // 비어있으면 is-invalid 클래스 추가
                             field.classList.remove('is-valid');
                             field.classList.add('is-invalid');
                             isFormValid = false;
                         } else {
-                            // 채워져 있으면 is-valid 클래스 추가
                             field.classList.remove('is-invalid');
                             field.classList.add('is-valid');
                         }
@@ -627,8 +621,7 @@
                 }
             });
 
-
-            // --- Lab 4: 동적 목록 (Dynamic List) ---
+            // --- 동적 목록 (Dynamic List) ---
             const itemInput = document.getElementById('itemInput');
             const addButton = document.getElementById('addButton');
             const deleteButton = document.getElementById('deleteButton');
@@ -637,7 +630,7 @@
             function addItem() {
                 const text = itemInput.value.trim();
                 if (text !== '') {
-                    const newItem = document.createElement('li'); // 'li'로 수정
+                    const newItem = document.createElement('li');
                     newItem.textContent = text;
                     itemList.appendChild(newItem);
                     itemInput.value = '';
@@ -652,9 +645,9 @@
             addButton.addEventListener('click', addItem);
             deleteButton.addEventListener('click', clearList);
             
-            // 입력창에서 Enter 키를 눌렀을 때도 추가되도록
             itemInput.addEventListener('keydown', function(event) {
                 if (event.key === 'Enter') {
+                    event.preventDefault(); 
                     addItem();
                 }
             });
