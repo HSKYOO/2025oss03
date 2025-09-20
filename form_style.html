@@ -21,10 +21,25 @@
         text-align: center;
     }
 
+    .header > h2 {
+        font-weight: 400;
+        font-size: 30px;
+        margin-bottom: 5px;
+    }
+
+    .header > a {
+        font-size: 19px;
+        font-weight: 300;
+        margin: 0 160px 0 160px;
+        margin-bottom: 90px;
+    }
+
     .main {
         display: flex;
         flex-direction: row;
-        align-items: center;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 80px;
     }
 
     .Billing {
@@ -34,7 +49,7 @@
     .names {
         display: flex;
         flex-direction: row;
-        gap: 400px;
+        justify-content: space-between;
     }
 
     .location {
@@ -51,7 +66,7 @@
     .line_divide {
         /* border: 1px solid black; */
         background-color: rgba(111, 106, 106, 0.397);
-        width: 800px;
+        width: 600px;
         height: 0.5px;
         margin-top: 20px;
         margin-bottom: 20px;
@@ -98,10 +113,40 @@
         background-color: #0a53be;
     }
 
+    .sidebar {
+        width: 350px;
+        margin-left: 30px;
+    }
+
     .sidebar_header {
         display: flex;
         flex-direction: row;
-        gap: 120px;
+        gap: 140px;
+    }
+
+    .your_cart {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        width: 280px;
+        padding: 5px 0;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+    }
+
+    .your_cart > li {
+        padding-left:20px;
+        padding-top: 5px;
+    }
+
+    .your_cart > li:not(:last-child) {
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .product {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 18px;
     }
     /* focus -> 1. 파란색(처음 입력시) 2. 빨간색(required 입력 안됬을 시) 3.초록색(입력값이 있을때) */
 </style>
@@ -110,7 +155,7 @@
 <body>
     <!-- 헤더 -->
     <div class="header">
-        <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png" alt="Bootstrap Logo" width="80" height="70">
+        <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png" alt="Bootstrap Logo" width="80" height="70" style="padding-top: 25px;">
         <h2>Checkout form</h2>
         <a> Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</a>
     </div>
@@ -126,30 +171,30 @@
             </div>
 
             <div class="names">
-                <input type="text" size="16" name="fname" id="fname" pattern="\d*">
-                <input type="text" size="16" name="lname" id="lname" pattern="\d*">
+                <input type="text" size="16" name="fname" id="fname" pattern="\d*" required>
+                <input type="text" size="16" name="lname" id="lname" pattern="\d*" required>
             </div>
 
             <div class="username">
                 <label for="username">Username</label></br>
-                <input type="text" size="40" name="username" id="username" placeholder="Username">
+                <input type="text" size="40" name="username" id="username" placeholder="Username" required>
             </div>
             
             <div class="email">
                 <label for="email">Email</label>
                 <label for="email" style="font-weight: 300;">(Optional)</label></br>
-                <input type="text" size="40" name="email" id="email" placeholder="you@example.com">
+                <input type="text" size="40" name="email" id="email" placeholder="you@example.com" required>
             </div>
 
             <div class="address">
                 <label for="address1">Address</label></br>
-                <input type="text" size="40" name="address1" id="address1" placeholder="1234 Main St">
+                <input type="text" size="40" name="address1" id="address1" placeholder="1234 Main St" required>
             </div>
 
             <div class="address">
                 <label for="address2">Address 2</label>
                 <label for="address2" style="font-weight: 300;">(Optional)</label></br>
-                <input type="text" size="40" name="address2" id="address2" placeholder="Apartment or suite" >
+                <input type="text" size="40" name="address2" id="address2" placeholder="Apartment or suite" required >
             </div>
 
             <div class="location">
@@ -198,8 +243,8 @@
             </div>
 
             <div class="card_input_box">
-                <input type="text" id="cardName">
-                <input type="text" id="cardNumber">
+                <input type="text" id="cardName" required>
+                <input type="text" id="cardNumber" required>
             </div>
             <p style="font-size: 14px; font-weight: 400; color: rgba(58, 55, 55, 0.639);">Full name as displayed on card</p>
             
@@ -209,8 +254,8 @@
             </div>
 
             <div class="back_card_input">
-                <input type="text" id="expiration" name="expiration">
-                <input type="text" id="CVV" name="CVV">
+                <input type="text" id="expiration" name="expiration" required>
+                <input type="text" id="CVV" name="CVV" required>
             </div>
 
             <!-- 경계선 -->
@@ -223,9 +268,55 @@
         <div class="sidebar">
             <div class="sidebar_header">
                 <div style="font-size: 25px; color: #0D6EFD; text-align: left;">Your cart</div>
-                <div style="font-size: 25px; color: white; text-align: center; background-color: #0D6EFD; border-radius: 30px; width: 40px;">3</div>
+                <div style="font-size: 18px; color: white; text-align: center; background-color: #0D6EFD; border-radius: 25px; width: 35px; align-items: center; padding: 3px 0 0 0; font-weight: 700; height: 28px;">3</div>
             </div>
             
+            <!-- 리스트 -->
+            <ul class="your_cart">
+                <li>
+                    <div class="product">
+                        <span style="font-size: 15px; font-weight: 400;">Product Name</span>
+                        <span style="color:rgb(111, 106, 106) ;">$12</span>
+                    </div>
+                    
+                    <p style="font-size: 13px; color:rgb(111, 106, 106); margin-top:0 ;">Brief description</p>
+                </li>
+
+                <li>
+                    <div class="product">
+                        <span style="font-size: 15px; font-weight: 400;">Second Product</span>
+                        <span style="color:rgb(111, 106, 106) ;">$8</span>
+                    </div>
+                    
+                    <p style="font-size: 13px; color:rgb(111, 106, 106); margin-top:0 ;">Brief description</p>
+                </li>
+
+                <li>
+                    <div class="product">
+                        <span style="font-size: 15px; font-weight: 400;">Third item</span>
+                        <span style="color:rgb(111, 106, 106);">$5</span>
+                    </div>
+                    
+                    <p style="font-size: 13px; color:rgb(111, 106, 106); margin-top:0 ;">Brief description</p>
+                </li>
+
+                <li style="background-color: #e9ecef;">
+                    <div class="product">
+                        <span style="font-size: 15px; font-weight: 400; color:#198754 ;">Promo code</span>
+                        <span style="color:#198754 ;">-$5</span>
+                    </div>
+                    
+                    <p style="font-size: 13px; color:#198754; margin-top:0 ;">EXAMPLECODE</p>
+                </li>
+                
+                <li style="margin-bottom: 10px;">
+                    <div class="product">
+                        <span style="font-size: 15px; font-weight: 400;">Total (USD)</span>
+                        <span style="color:black; font-weight: 600;">$20</span>
+                    </div>
+                    
+                </li>
+            </ul>
         </div>
     </div>
     
