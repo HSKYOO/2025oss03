@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form_style.html</title>
+</head>
+
+<!-- 스타일 -->
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        background-color: #f8f9fa;
+        font-family: 'Inter', sans-serif;
+        color: #212529;
+        margin: 0;
+        padding: 0;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .header > h2 {
+        font-weight: 500;
+        font-size: 32px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .header > a {
+        font-size: 18px;
+        font-weight: 300;
+        margin: 0 160px 0 160px;
+        margin-bottom: 90px;
+        line-height: 1.6;
+        color: #6C757D;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: row;
+        /* 윗쪽에서 시작 */
+        align-items: flex-start;
+        justify-content: center;
+        gap: 60px;
+        padding: 0 20px;
+    }
+
+    .Billing {
+        margin: 1px;
+    }
+
+    .names {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .location {
+        display: flex;
+        flex-direction: row;
+        gap: 160px;
+    }
+
+    .location_select {
+        display: flex;
+        gap: 120px;
+    }
+
+    .line_divide {
+        /* border: 1px solid black; */
+        background-color: rgba(111, 106, 106, 0.397);
+        width: 600px;
+        height: 0.5px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .Payment {
+        margin-top: 10px;
+    }
+
+    .card_input {
+        display: flex;
+        gap: 70px;
+    }
+
+    .card_input_box {
+        display: flex;
+        gap: 40px;
+    }
+
+    .back_card {
+        display: flex;
+        gap: 40px;
+    }
+
+    .back_card_input {
+        display: flex;
+        gap: 30px;
+    }
+
+    .button {
+        display: flex;
+        width: 300px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 300;
+        background-color: #0D6EFD;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .button:hover {
+        background-color: #0a53be;
+    }
+
+    /* -- 여기서 부터 사이드 바--------------------------------------------------------------------------------------------------- */
+    .sidebar {
+        width: 350px;
+        margin-left: 30px;
+    }
+
+    .sidebar_header {
+        display: flex;
+        flex-direction: row;
+        gap: 140px;
+    }
+
+    .your_cart {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        width: 280px;
+        padding: 5px 0;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+    }
+
+    .your_cart > li {
+        padding-left:20px;
+        padding-top: 5px;
+    }
+
+    .your_cart > li:not(:last-child) {
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .product {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 18px;
+    }
+
+    .Promote {
+        padding: 7px;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+        margin-top: 15px;
+        width: 265px;
+    }
+
+    .Promote .promote-input {
+        display: flex;
+    }
+
+    /* 아니 하 진짜 왜 안되는 거임...... */
+    .promote-input > input {
+        width: 190px;
+        height: 39px;
+        font-size: 15px;
+        border-radius: 6px 0 0 6px;
+        padding: 0 10px;
+        font-weight: 300;
+
+        border: 1px solid #ced4da;
+        /* 오른쪽 테두리 제거 */
+        border-right: none;
+
+        outline: none;
+        box-sizing: border-box;
+    }
+    
+    .promote-input > a {
+        display: flex;
+        align-items: center;
+
+        padding: 0px 13px 0 11px;
+        border: 1px solid #6C757D;
+        border-radius: 0 6px 6px 0;
+        height: 38px;
+        text-align: center;
+        background-color: #6C757D;
+        color: white;
+        width: 50px;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    
+    /* focus -> 1. 파란색(처음 입력시) 2. 빨간색(required 입력 안됬을 시) 3.초록색(입력값이 있을때) */
+</style>
+
+<!-- 내용 -->
+<body>
+    <!-- 헤더 -->
+    <div class="header">
+        <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png" alt="Bootstrap Logo" width="80" height="70" style="padding-top: 25px;">
+        <h2>Checkout form</h2>
+        <a> Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</a>
+    </div>
+    <!-- 메인 (1. 결제칸 2. 사이드 바) -->
+    <div class="main">
+        <!-- 결제 파트 -->
+        <div class="Billing">
+            <h3>Billing address</h3>
+
+            <div class="names">
+                <label for="fname">First name</label>
+                <label for="lname">Last name</label></br>   
+            </div>
+
+            <div class="names">
+                <input type="text" size="16" name="fname" id="fname" pattern="\d*" required>
+                <input type="text" size="16" name="lname" id="lname" pattern="\d*" required>
+            </div>
+
+            <div class="username">
+                <label for="username">Username</label></br>
+                <input type="text" size="40" name="username" id="username" placeholder="Username" required>
+            </div>
+            
+            <div class="email">
+                <label for="email">Email</label>
+                <label for="email" style="font-weight: 300;">(Optional)</label></br>
+                <input type="text" size="40" name="email" id="email" placeholder="you@example.com" required>
+            </div>
+
+            <div class="address">
+                <label for="address1">Address</label></br>
+                <input type="text" size="40" name="address1" id="address1" placeholder="1234 Main St" required>
+            </div>
+
+            <div class="address">
+                <label for="address2">Address 2</label>
+                <label for="address2" style="font-weight: 300;">(Optional)</label></br>
+                <input type="text" size="40" name="address2" id="address2" placeholder="Apartment or suite" required >
+            </div>
+
+            <div class="location">
+                <label for="country">Country</label>
+                <label for="state">State</label>
+                <label for="zip">Zip</label></br>
+            </div>
+            <div class="location_select">
+                <select name="country">
+                    <option value="1">Choose...</option>
+                    <option value="2">United States</option>
+                </select>
+
+                <select name="state">
+                    <option value="1">Choose...</option>
+                    <option value="2">California</option>
+                </select>
+            
+                <input type="text" size="10" name="zip" id="zip">
+            </div>
+            
+            <!-- 경계선 -->
+            <div class="line_divide"></div>
+
+            <!-- 체크 박스 2개 -->
+            <label for="options">
+                <input type="checkbox" id="checkbox_1" name="checkbox_1">Shipping address is the same as my billing address<br>
+                <input type="checkbox" id="checkbox_2" name="checkbox_2">Save this information for next time        
+            </label>
+
+            <!-- 경계선 -->
+            <div class="line_divide"></div>
+
+            <!-- Payment -->
+            <label for="card" style="font-size: 20px; font-weight: 400;">Payment</label>
+            
+            <div class="Payment">
+                <input type="radio" id="card" name="card" value="C_card">Credit card<br>
+                <input type="radio" id="card" name="card" value="D_card">Debit card<br>
+                <input type="radio" id="card" name="card" value="Paypal">Paypal
+            </div>
+            
+            <div class="card_input">
+                <label for="cardName">Name on card</label>
+                <label for="cardNumber">Credit card number</label><br>
+            </div>
+
+            <div class="card_input_box">
+                <input type="text" id="cardName" required>
+                <input type="text" id="cardNumber" required>
+            </div>
+            <p style="font-size: 14px; font-weight: 400; color: rgba(58, 55, 55, 0.639);">Full name as displayed on card</p>
+            
+            <div class="back_card">
+                <label for="expiration">Expiration</label>
+                <label for="CVV">CVV</label>
+            </div>
+
+            <div class="back_card_input">
+                <input type="text" id="expiration" name="expiration" required>
+                <input type="text" id="CVV" name="CVV" required>
+            </div>
+
+            <!-- 경계선 -->
+            <div class="line_divide"></div>
+
+            <!-- checkout 버튼 -->
+            <div class="button">Continue to checkout</div>
+        </div>
+        <!-- 사이드 바 -->
+        <div class="sidebar">
+            <div class="sidebar_header">
+                <div style="font-size: 25px; color: #0D6EFD; text-align: left;">Your cart</div>
+                <div style="font-size: 18px; color: white; text-align: center; background-color: #0D6EFD; border-radius: 25px; width: 35px; align-items: center; padding: 3px 0 0 0; font-weight: 700; height: 28px;">3</div>
+            </div>
+            
+            <!-- 리스트 -->
+            <ul class="your_cart">
+                <li>
+                    <div class="product">
+                        <span style="font-size: 15px; font-weight: 400;">Product Name</span>
+                        <span style="color:rgb(111, 106, 106) ;">$12</span>
+                    </div>
+                    
+                    <p style="font-size: 13px; color:rgb(111, 106, 106); margin-top:0 ;">Brief description</p>
+                </li>
+
+                <li>
+                    <div class="product">
+                        <span style="font-size: 15px; font-weight: 400;">Second Product</span>
+                        <span style="color:rgb(111, 106, 106) ;">$8</span>
+                    </div>
+                    
+                    <p style="font-size: 13px; color:rgb(111, 106, 106); margin-top:0 ;">Brief description</p>
+                </li>
+
+                <li>
+                    <div class="product">
+                        <span style="font-size: 15px; font-weight: 400;">Third item</span>
+                        <span style="color:rgb(111, 106, 106);">$5</span>
+                    </div>
+                    
+                    <p style="font-size: 13px; color:rgb(111, 106, 106); margin-top:0 ;">Brief description</p>
+                </li>
+
+                <li style="background-color: #e9ecef;">
+                    <div class="product">
+                        <span style="font-size: 15px; font-weight: 400; color:#198754 ;">Promo code</span>
+                        <span style="color:#198754 ;">-$5</span>
+                    </div>
+                    
+                    <p style="font-size: 13px; color:#198754; margin-top:0 ;">EXAMPLECODE</p>
+                </li>
+                
+                <li style="margin-bottom: 10px;">
+                    <div class="product">
+                        <span style="font-size: 15px; font-weight: 400;">Total (USD)</span>
+                        <span style="color:black; font-weight: 600;">$20</span>
+                    </div>
+                    
+                </li>
+            </ul>
+
+            <!-- Promo code -->
+            <div class="Promote">
+                <div class="promote-input">
+                    <input type="text" id="promocode" name="promocode" placeholder="Promo code">
+                    <a href="https://2025oss03.vercel.app/form_style.html">Redeem</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
