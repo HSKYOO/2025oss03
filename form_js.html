@@ -575,7 +575,15 @@
             for (let i = 0; i < elements.length; i++){
                 const field = elements[i];
 
-                
+                if (field.hasAttribute('required')) {
+                    let parent = field.parentNode;
+                    while (parent && !parent.classlist.contains('form-group')) {
+                        parent = parent.parentNode
+                    }
+                    const formgroup = parent;
+
+                    
+                }
             }
 
             if (isValid == True) {
