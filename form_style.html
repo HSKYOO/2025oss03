@@ -128,6 +128,7 @@
 
     .input-group-input {
         border-radius: 0 6px 6px 0;
+        width: 100%;
     }
 
     /* 경계선 */
@@ -301,7 +302,10 @@
                         <div class="input-group">
                             <span class="input-group-text">@</span>
                             <!-- 길이가 다른 끝과 안맞음... 왜? -->
-                            <input type="text" name="username" id="username" placeholder="Username" style="border-radius: 0 6px 6px 0;" required>
+                            <div class="input-group-input">
+                                <input type="text" name="username" id="username" placeholder="Username" style="border-radius: 0 6px 6px 0;">
+
+                            </div>
                         </div>
                     </div>
 
