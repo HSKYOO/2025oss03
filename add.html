@@ -4,11 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>add.html</title>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="my.css">
+
 </head>
 <body>
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>Adding a New Book</h1>
+        <p>Please write down following information</p>
+    </div>
+
+    <div class="container">
+        <form action="/action_page.php" class="was-validated" id="book-info">
+            <div class="mb-3 mt-3">
+                <label for="bname" class="form-label">Book Name</label>
+                <input type="text" class="form-control" id="bname" placeholder="Enter Book name" name="bname" required>
+                <div class="valid-feedback">Valid</div>
+                <div class="invalid-feedback">Please fill out this field</div>
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="author" class="form-label">Author</label>
+                <input type="text" class="form-control" id="author" placeholder="Enter Author name" name="author" required>
+                <div class="valid-feedback">Valid</div>
+                <div class="invalid-feedback">Please fill out this field</div>
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="publisher" class="form-label">Publisher</label>
+                <input type="text" class="form-control" id="publisher" placeholder="Enter Publisher" name="publisher" required>
+                <div class="valid-feedback">Valid</div>
+                <div class="invalid-feedback">Please fill out this field</div>
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="pyear" class="form-label">Publication Year</label>
+                <input type="text" class="form-control" id="pyear" placeholder="Enter Published Year" name="pyear" required>
+                <div class="valid-feedback">Valid</div>
+                <div class="invalid-feedback">Please fill out this field</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">확인</button>
+            <a href="index.html" class="btn btn-outline-primary">취소</a>
+
+            
+        </form>
+
+    </div>
     
+    <script>
+        const bookinfo = document.getElementById("book-info")
+
+        function submitAlert(event) {
+            event.preventDefault();
+            alert("게시물이 추가됩니다");
+        }
+        bookinfo.addEventListener('submit', submitAlert);
+    </script>
+
 </body>
 </html>
