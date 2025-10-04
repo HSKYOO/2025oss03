@@ -50,4 +50,8 @@
     .view-page h1 {
         font-weight: 600;
     }
+
+    .view-page .form-control{
+        width: 70%;
+    }
 }
