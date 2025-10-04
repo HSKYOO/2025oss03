@@ -3,12 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>edit.html</title>
+    <title>view.html</title>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="my.css">
 </head>
+
 <body>
+    <div class="p-5 bg-success text-white text-left">
+        <h1>Edit Information</h1>
+        <p>책 정보를 수정해요.</p>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-4">
+                <h2>About Book</h2>
+                <h5>Specific datas</h5>
+                <img class="img-thumbnail" src="https://image.yes24.com/goods/147189020/L" alt="book" style="width: 250px;">
+                <h6>Edit the information you wish to change</h6>
+            </div>
+            <div class="col-sm-8">
+                <h2>Book Info</h2>
+                <form class="was-validated" id="edit-form">
     
+                    <div class="form-group" >
+                        
+                        <div class="mb-3 mt-3">
+                            <label for="no">Current No.</label>
+                            <input class="form-control" id="no" type="text" value="0." name="no" required>
+                            <div class="valid-feedback">Valid</div>
+                            <div class="invalid-feedback">Please fill out this field</div>
+                        </div>
+
+                        <div class="mb-3 mt-3">
+                            <label for="bname" class="form-label">Book Name</label>
+                            <input type="text" class="form-control" id="bname" value="The Little Prince" name="bname" required>
+                            <div class="valid-feedback">Valid</div>
+                            <div class="invalid-feedback">Please fill out this field</div>
+                        </div>
+
+                        <div class="mb-3 mt-3">
+                            <label for="author">Author</label>
+                            <input class="form-control" id="author" type="text" value="Antonie de Saint-Exupéry" name="author" required>
+                            <div class="valid-feedback">Valid</div>
+                            <div class="invalid-feedback">Please fill out this field</div>
+                        </div>
+
+                        <div class="mb-3 mt-3">
+                            <label for="publisher">Publisher</label>
+                            <input class="form-control" id="publisher" type="text" value="Reynal & Hitchcock" name="publisher" required>
+                            <div class="valid-feedback">Valid</div>
+                            <div class="invalid-feedback">Please fill out this field</div>
+                        </div>
+
+                        <div class="mb-3 mt-3">
+                            <label for="pyear">Publication Year</label>
+                            <input class="form-control" id="pyear" type="text" value="1943" name="pyear" required>
+                            <div class="valid-feedback">Valid</div>
+                            <div class="invalid-feedback">Please fill out this field</div>
+                        </div>
+
+                        <div class="mb-3 mt-3">
+                            <label for="isbn">ISBN</label>
+                            <input class="form-control" id="isbn" type="text" value="84091273" name="isbn" required>
+                            <div class="valid-feedback">Valid</div>
+                            <div class="invalid-feedback">Please fill out this field</div>
+                        </div>
+
+                    </div>
+                    <div class="container mt-3">
+                        <button type="submit" class="btn btn-primary" id="edit">확인</button>
+                        <a href="index.html" class="btn btn-outline-primary">취소</a>
+                    </div>
+                        
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const editForm = document.getElementById("edit-form")
+
+        function submitConfirm(event) {
+
+            event.preventDefault();
+
+            if(editForm.checkValidity() === false) {
+                alert("정보를 전부 입력해주세요.");
+            } else {
+                confirm("게시물을 수정할까요?");
+            }
+        }
+
+        editForm.addEventListener('submit', submitConfirm);
+    </script>
 </body>
 </html>
