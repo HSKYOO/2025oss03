@@ -4,11 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>view.html</title>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="my.css">
 </head>
+
 <body>
+    <div class="p-5 bg-primary text-white text-left">
+        <h1>Book Information</h1>
+        <p>책 정보를 확인하고 수정해요.</p>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-4">
+                <h2>About Book</h2>
+                <h5>Specific datas</h5>
+                <img class="img-thumbnail" src="https://papier.imgix.net/https%3A%2F%2Fwww.papier.com%2Ftemplated_image%2F20%2F1726577825%2F1757680235%2F43017.jpg?ixlib=rb-3.2.1&w=408&auto=format%2Ccompress&s=c650b1e0eccd06d1320c4f9d9bc56c33" alt="book" style="width: 250px;">
+                <h6>Edit the information if it need to change</h6>
+            </div>
+            <div class="col-sm-8">
+                <h2>Book Info</h2>
+                <form>
     
+                    <div class="form-group">
+                        <label for="no">Current No.</label>
+                        <input class="form-control" id="no" type="text" value="0." readonly>
+
+                        <label for="bname">Book name</label>
+                        <input class="form-control" id="bname" type="text" value="The Little Prince" readonly>
+
+                        <label for="author">Author</label>
+                        <input class="form-control" id="author" type="text" value="Antonie de Saint-Exupéry" readonly>
+
+                        <label for="publisher">Publisher</label>
+                        <input class="form-control" id="publisher" type="text" value="Reynal & Hitchcock" readonly>
+
+                        <label for="pyear">Publication Year</label>
+                        <input class="form-control" id="pyear" type="text" value="1943" readonly>
+
+                        <label for="isbn">ISBN</label>
+                        <input class="form-control" id="isbn" type="text" value="84091273" readonly>
+
+                    </div>
+                    <div class="container mt-3">
+                        <a href="edit.html" class="btn btn-primary">수정</a>
+                        <button type="button" class="btn btn-primary" id="delete">삭제</button>
+                        <a href="index.html" class="btn btn-primary">목록</a>
+                    </div>
+                        
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const deleteBtn = document.getElementById("delete")
+
+        function submitConfirm(event) {
+            confirm("게시물을 삭제할까요?");
+        }
+        deleteBtn.addEventListener('click', submitConfirm);
+    </script>
 </body>
 </html>
